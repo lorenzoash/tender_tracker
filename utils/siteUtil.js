@@ -6,12 +6,14 @@ const client = awis({
     secret: process.env.SECRET_ACCESS_KEY
 });
 
+
+
 client({
     Action: 'TopSites',
-    CountryCode: 'PE',
+    CountryCode: 'ZW', // insert lat+long data pulled and converted into country code here, need action for data input
     Start: 1,
-    Count: 100,
-    ResponseGroup: 'Country'
+    Count: 10,
+    ResponseGroup: 'Country',
   }, function (err, res) {
         if (err) console.log(err);  
         console.log('Response: ', JSON.stringify(res));
