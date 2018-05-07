@@ -1,14 +1,6 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
- 
 #map {
   height: 100%;
+  margin-left: 100px;
 }
 
 html, body {
@@ -16,3 +8,26 @@ html, body {
   margin: 0;
   padding: 0;
 }
+#sidebar {
+  background: linear-gradient(aqua, aquamarine, rgb(66, 110, 96));
+  width: 120px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px
+
+}
+
+#sidebar.visible{
+  left:0px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+ ul li {
+   list-style: none;
+ }
+
