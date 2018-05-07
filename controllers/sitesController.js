@@ -12,7 +12,7 @@ function topTen(req, res) {
             Action: 'TopSites',
             CountryCode: req.body.countryCode,
             Start: 1,
-            Count: 10,
+            Count: 2,
             ResponseGroup: 'Country',
         }, function (err, apiRes) {
             if (err) console.log(err);
