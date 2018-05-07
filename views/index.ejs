@@ -68,10 +68,21 @@
 
           function getCC(lat, lng){
             fetch(`${rootURL}lat=${lat}&lng=${lng}&username=<%= process.env.GEO_USENAME %>`)
-              .then(jsonCC => jsonCC.json())
+              .then(cCode => cCode.json())
                 .then(cCode => cCode.countryCode)
-                  .then(fetch()) 
-          }
+                  .then(function(cCode){
+                    fetch('/sites/topTen', {
+                    method: 'post',
+                    body: JSON.stringify({
+                      countryCode: cCode
+                    }),
+                    headers: {
+                      'content-type': 'application/json'
+                    }
+                  })
+                  .then(countryData => console.log(countryData.json()))
+          })
+        }
 
         google.maps.event.addListener(map, 'click', function(event) {
      
