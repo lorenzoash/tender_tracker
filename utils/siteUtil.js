@@ -6,16 +6,15 @@ const client = awis({
     secret: process.env.SECRET_ACCESS_KEY
 });
 
-
-
-client({
-    Action: 'TopSites',
-    CountryCode: 'ZW', // insert lat+long data pulled and converted into country code here, need action for data input
-    Start: 1,
-    Count: 10,
-    ResponseGroup: 'Country',
-  }, function (err, res) {
-        if (err) console.log(err);  
-        console.log('Response: ', JSON.stringify(res));
-  });
-
+  module.exports = function topTen(countryCode){
+    client({
+        Action: 'TopSites',
+        CountryCode: countryCode,
+        Start: 1,
+        Count: 10,
+        ResponseGroup: 'Country',
+      }, function (err, res) {
+            if (err) console.log(err);  
+            console.log('Response: ', JSON.stringify(res));
+      });
+  };
