@@ -422,7 +422,27 @@
               .then(countryData => countryData.json())
               .then(function(countryData) {
                 console.dir(countryData);
-                contentString = countryData.topSites.country.countryName;
+                contentString = 
+                '<table class="table table-dark table-hover mb-0 ">'+
+                '<thead class="thead-light">'+
+                    '<tr>'+
+                        '<th scope="col"> # </th>'+
+                        '<th scope="col">Name</th>'+
+                        '<th scope="col">Rank</th>'+
+                        '<th scope="col">Profile Page</th>'+
+                    '</tr>'+
+                '</thead>'+      
+            '</table>'+
+                  '<div id="content">'+
+                  '<div id="siteNotice">'+
+                  '</div>'+
+                  `<h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>`+
+                  '<div id="bodyContent">'+
+                  '<ul>'+
+
+                  `<li><a href="http://www.${countryData.topSites.country.sites.site[0].dataUrl}"target="_blank">${countryData.topSites.country.sites.site[0].dataUrl}</a></li>`+
+
+                  '</ul>';
               })   
           })
         }
