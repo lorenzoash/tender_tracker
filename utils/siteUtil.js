@@ -6,8 +6,6 @@ const client = awis({
     secret: process.env.SECRET_ACCESS_KEY
 });
 
-
-
 client({
     Action: 'TopSites',
     CountryCode: 'ZW', // insert lat+long data pulled and converted into country code here, need action for data input
@@ -18,4 +16,3 @@ client({
         if (err) console.log(err);  
         console.log('Response: ', JSON.stringify(res));
   });
-
