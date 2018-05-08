@@ -70,9 +70,11 @@
               </a>
             </li>
             <ul class="sub-menu collapse" id="new">
+            <% if (user) { %>
               <li>New New 1</li>
               <li>New New 2</li>
               <li>New New 3</li>
+            <% } %>
             </ul>
           </ul>
         </div>
@@ -435,6 +437,7 @@
 
             });
 
+
             google.maps.event.addListener(map, 'drag', function () {
 
               var proj = map.getProjection();
@@ -451,7 +454,6 @@
                 // map.fitBounds(boundsNew);  Or Define bound that u want show
               }
             });
-
 
             const rootURL = 'http://ws.geonames.org/countryCodeJSON?';
 
@@ -521,8 +523,6 @@
               console.log(event.latLng.lng())
             });
           }
-          
-
         </script>
         <div class="main">
         </div>
