@@ -1,9 +1,4 @@
-#map {
-  height: 100%;
-  margin-left: 45px;
-  position: absolute;
-  width: 100%;
-}
+
 /* 
 .row, .container-fluid, #page-content-wrapper {
   height: 100%;
@@ -15,9 +10,22 @@
 
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  width: 100%;
 }
+
+#map {
+   position: absolute;
+    top: 0;
+    left: 100px;
+    bottom: 0;
+    right: 100px;
+}
+
+/* #map iframe{
+    height:100%;
+    width:100%;
+    position:absolute;
+} */
 /* 
 #sidebar-wrapper {
   z-index: 1;
@@ -277,7 +285,7 @@ html, body {
 
    /* Move nav to full on mouse over*/
    nav.sidebar:hover{
-     margin-left: 0px;
+     margin-left: -16px;
    }
    /*for hiden things when navbar hidden*/
    .forAnimate{
@@ -459,4 +467,17 @@ html, body {
    display: block;
  }
 }
+/* .map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+} */
 
