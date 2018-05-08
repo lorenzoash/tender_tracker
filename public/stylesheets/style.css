@@ -94,7 +94,7 @@ html, body {
 /* Custom fixed navs */
 
   header.navbar+nav.navbar{
-  /* margin-top: 20px;same margin-bottom .navbar */
+  /* margin-top: 20px;same margin-bottom .  navbar */
   }
   .navbar.navbar-default.navbar-fixed-top{
   margin-top: 50px;
@@ -250,7 +250,7 @@ html, body {
 
    /*allows nav box to use 100% width*/
    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
-     padding: 0 0px 0 0px;
+     padding: 0 0 0 0;
    }
 
    /*colors dropdown box text */
@@ -266,7 +266,7 @@ html, body {
      margin-left: -220px;
      float: left;
      z-index: 8000;
-     margin-bottom: 0px;
+     margin-bottom: 0;
    }
 
    /*give sidebar 100% width;*/
@@ -276,7 +276,7 @@ html, body {
 
    /* Move nav to full on mouse over*/
    nav.sidebar:hover{
-     margin-left: 0px;
+     margin-left: -16px;
    }
    /*for hiden things when navbar hidden*/
    .forAnimate{
