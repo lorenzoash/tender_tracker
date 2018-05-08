@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
-const MongoDBStore = require('connect-mongodb-session')(session)
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 var indexRouter = require('./routes/index');
 var sitesRouter = require('./routes/sites');
@@ -19,7 +19,7 @@ require('./config/passport');
 const sessionStore = new MongoDBStore({
   uri: process.env.MONGODB_CONNECTION_URI,
   collection: 'sessions'
-})
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,13 +29,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({
-	secret: 'boomchakalaka',
-	cookie: {maxAge: 60000000},
-	resave: true,
-	saveUninitialized: false,
-  store: sessionStore
-}));
+app.use(
+  session({
+    secret: 'boomchakalaka',
+    cookie: { maxAge: 60000000 },
+    resave: true,
+    saveUninitialized: false,
+    store: sessionStore
+  })
+);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
