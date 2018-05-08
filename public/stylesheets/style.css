@@ -14,10 +14,15 @@ html, body {
 
 #map {
    position: absolute;
-    top: 0;
-    left: 100px;
-    bottom: 0;
-    right: 100px;
+  height: 100%;
+  width: 100%;
+}
+
+.gm-style-cc { display:none; }
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"],
+a[href^="https://www.google.com/maps"] {
+    display: none !important;
 }
 
 /* #map iframe{
