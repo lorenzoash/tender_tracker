@@ -62,25 +62,23 @@
                 <i class="fa fa-search fa-lg"></i> Search
               </a>
             </li>
-
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-              <a href="#">
-                <i class="fa fa-heart fa-lg"></i> Favorites
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <ul class="sub-menu collapse" id="new">
             <% if (user) { %>
-              <li>New New 1</li>
-              <li>New New 2</li>
-              <li>New New 3</li>
-            <% } %>
-            </ul>
+              <li data-toggle="collapse" data-target="#new" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-heart fa-lg"></i> Favorites
+                  <span class="arrow"></span>
+                </a>
+              </li>
+              <ul class="sub-menu collapse" id="new">
+                <li>New New 1</li>
+                <li>New New 2</li>
+                <li>New New 3</li>
+              </ul>
+              <% } %>
           </ul>
         </div>
+
         <script>
-
-
           var contentString;
           function initMap() {
             let map = new google.maps.Map(document.getElementById('map'), {
@@ -177,28 +175,10 @@
                 },
                 {
                   "featureType": "administrative.province",
-                  "elementType": "geometry.stroke",
-                  "stylers": [
-                    {
-                      "color": "#4b6878"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "administrative.province",
                   "elementType": "labels",
                   "stylers": [
                     {
                       "visibility": "off"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "landscape.man_made",
-                  "elementType": "geometry.stroke",
-                  "stylers": [
-                    {
-                      "color": "#334e87"
                     }
                   ]
                 },
@@ -234,77 +214,6 @@
                   "stylers": [
                     {
                       "visibility": "off"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi",
-                  "elementType": "geometry",
-                  "stylers": [
-                    {
-                      "color": "#283d6a"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi",
-                  "elementType": "labels.text.fill",
-                  "stylers": [
-                    {
-                      "color": "#6f9ba5"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi",
-                  "elementType": "labels.text.stroke",
-                  "stylers": [
-                    {
-                      "color": "#1d2c4d"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi.park",
-                  "elementType": "geometry.fill",
-                  "stylers": [
-                    {
-                      "color": "#023e58"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi.park",
-                  "elementType": "labels",
-                  "stylers": [
-                    {
-                      "visibility": "off"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "poi.park",
-                  "elementType": "labels.text.fill",
-                  "stylers": [
-                    {
-                      "color": "#3C7680"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road",
-                  "stylers": [
-                    {
-                      "visibility": "off"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road",
-                  "elementType": "geometry",
-                  "stylers": [
-                    {
-                      "color": "#304a7d"
                     }
                   ]
                 },
@@ -318,100 +227,10 @@
                   ]
                 },
                 {
-                  "featureType": "road",
-                  "elementType": "labels.text.fill",
-                  "stylers": [
-                    {
-                      "color": "#98a5be"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road",
-                  "elementType": "labels.text.stroke",
-                  "stylers": [
-                    {
-                      "color": "#1d2c4d"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road.highway",
-                  "elementType": "geometry",
-                  "stylers": [
-                    {
-                      "color": "#2c6675"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road.highway",
-                  "elementType": "geometry.stroke",
-                  "stylers": [
-                    {
-                      "color": "#255763"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road.highway",
-                  "elementType": "labels.text.fill",
-                  "stylers": [
-                    {
-                      "color": "#b0d5ce"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "road.highway",
-                  "elementType": "labels.text.stroke",
-                  "stylers": [
-                    {
-                      "color": "#023e58"
-                    }
-                  ]
-                },
-                {
                   "featureType": "transit",
                   "stylers": [
                     {
                       "visibility": "off"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "transit",
-                  "elementType": "labels.text.fill",
-                  "stylers": [
-                    {
-                      "color": "#98a5be"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "transit",
-                  "elementType": "labels.text.stroke",
-                  "stylers": [
-                    {
-                      "color": "#1d2c4d"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "transit.line",
-                  "elementType": "geometry.fill",
-                  "stylers": [
-                    {
-                      "color": "#283d6a"
-                    }
-                  ]
-                },
-                {
-                  "featureType": "transit.station",
-                  "elementType": "geometry",
-                  "stylers": [
-                    {
-                      "color": "#3a4762"
                     }
                   ]
                 },
@@ -437,7 +256,6 @@
 
             });
 
-
             google.maps.event.addListener(map, 'drag', function () {
 
               var proj = map.getProjection();
@@ -457,6 +275,7 @@
 
             const rootURL = 'http://ws.geonames.org/countryCodeJSON?';
 
+        <% if (user) { %>
             function getCC(lat, lng) {
               return fetch(`${rootURL}lat=${lat}&lng=${lng}&username=<%= process.env.GEO_USENAME %>`)
                 .then(cCode => cCode.json())
@@ -468,8 +287,10 @@
                       countryCode: cCode
                     }),
                     headers: {
-                      'content-type': 'application/json'
-                    }
+                      "Content-Type": "application/json", 
+                      "Access-Control-Allow-Origin": "*"
+                    },
+                    credentials: 'include'
                   })
                     .then(countryData => countryData.json())
                     .then(function (countryData) {
@@ -496,32 +317,35 @@
 
                         '</ul>';
                     })
+                    .catch(err => `Err is: ${err}`);
                 })
             }
 
-            google.maps.event.addListener(map, 'click', function (event) {
-
-              marker = new google.maps.Marker({
-                position: event.latLng,
-                map: map,
-                animation: google.maps.Animation.DROP
-              });
-
-
-              let lat = event.latLng.lat();
-              let lng = event.latLng.lng();
-
-              getCC(lat, lng).then(function () {
-                console.log(contentString);
-                let infowindow = new google.maps.InfoWindow({
-                  content: contentString
+              google.maps.event.addListener(map, 'click', function (event) {
+  
+                marker = new google.maps.Marker({
+                  position: event.latLng,
+                  map: map,
+                  animation: google.maps.Animation.DROP
                 });
-                infowindow.open(map, marker);
+  
+                let lat = event.latLng.lat();
+                let lng = event.latLng.lng();
+  
+                getCC(lat, lng).then(function () {
+                  console.log(contentString);
+                  let infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                  });
+                  infowindow.open(map, marker);
+                });
+  
+                // console.log(event.latLng.lat())
+                // console.log(event.latLng.lng())
               });
+              
+            <% } %>
 
-              console.log(event.latLng.lat())
-              console.log(event.latLng.lng())
-            });
           }
         </script>
         <div class="main">
