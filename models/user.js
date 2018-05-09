@@ -6,6 +6,9 @@ let userSchema = new Schema({
     email: String,
     avatar: String,
     googleId: String,
+    favorites: {
+        type: [String]
+    }
 }, {
     timestamps: true
 })
