@@ -302,14 +302,14 @@
                       countryData.topSites.country.sites.site.forEach(function (country) {
 
                         countryTopSites += `<tr>
-                          <td><a href="http://www.${countryData.topSites.country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
+                          <td><a href="http://www.${country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
                           </tr>`;
 
                         contentString = `
                         <div id="content">
                           <div id="siteNotice"> 
                             <h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>
-                            <button onclick= "addFavorties(code,name)" class="fa fa-heart fa-lg text-muted" data-toggle="button" style="text-decoration: none"></button>
+                            <button onclick= "addFavorties(${countryData.topSites.country.countryCode}, ${countryData.topSites.country.countryName})" class="fa fa-heart fa-lg text-muted" data-toggle="button" style="text-decoration: none"></button>
                             
                             <div id="bodyContent">
                               <table class="table table-dark table-hover mb-0 ">
