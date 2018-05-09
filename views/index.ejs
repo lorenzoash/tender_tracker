@@ -70,11 +70,11 @@
               </a>
             </li>
             <ul class="sub-menu collapse" id="new">
-            <% if (user) { %>
-              <li>New New 1</li>
-              <li>New New 2</li>
-              <li>New New 3</li>
-            <% } %>
+              <% if (user) { %>
+                <li>New New 1</li>
+                <li>New New 2</li>
+                <li>New New 3</li>
+                <% } %>
             </ul>
           </ul>
         </div>
@@ -474,27 +474,33 @@
                     .then(countryData => countryData.json())
                     .then(function (countryData) {
                       console.dir(countryData);
-                      contentString =
-                        '<table class="table table-dark table-hover mb-0 ">' +
-                        '<thead class="thead-light">' +
-                        '<tr>' +
-                        '<th scope="col"> # </th>' +
-                        '<th scope="col">Name</th>' +
-                        '<th scope="col">Rank</th>' +
-                        '<th scope="col">Profile Page</th>' +
-                        '</tr>' +
-                        '</thead>' +
-                        '</table>' +
-                        '<div id="content">' +
-                        '<div id="siteNotice">' +
-                        '</div>' +
-                        `<h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>` +
-                        '<div id="bodyContent">' +
-                        '<ul>' +
+                      let countryTopSites = "";
+                      countryData.topSites.country.sites.site.forEach(function (country) {
+                        countryTopSites += `<tr>
+                          <td><a href="http://www.${countryData.topSites.country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
+                          </tr>`;
 
-                        `<li><a href="http://www.${countryData.topSites.country.sites.site[0].dataUrl}"target="_blank">${countryData.topSites.country.sites.site[0].dataUrl}</a></li>` +
-
-                        '</ul>';
+                        contentString = `
+                        <div id="content">
+                          <div id="siteNotice"> 
+                            <h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>
+                            <div id="bodyContent">
+                              <table class="table table-dark table-hover mb-0 ">
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th scope="col"> # </th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Rank</th>
+                                    <th scope="col">Profile Page</th>
+                                  </tr>
+                                </thead>
+                              ${countryTopSites}
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        `;
+                      })
                     })
                 })
             }
