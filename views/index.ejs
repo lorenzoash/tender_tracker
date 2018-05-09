@@ -61,14 +61,14 @@
               <a href="#">
                 <i class="fa fa-search fa-lg"></i> Search
               </a>
-              </li>
-            <% if (user) { %>
-            <li data-toggle="collapse" data-target="#new" class="collapsed">
-              <a href="#">
-                <i class="fa fa-heart fa-lg"></i> Favorites
-                <span class="arrow"></span>
-              </a>
             </li>
+            <% if (user) { %>
+              <li data-toggle="collapse" data-target="#new" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-heart fa-lg"></i> Favorites
+                  <span class="arrow"></span>
+                </a>
+              </li>
               <ul class="sub-menu collapse" id="new">
                 <li>New New 1</li>
                 <li>New New 2</li>
@@ -296,8 +296,10 @@
                     .then(countryData => countryData.json())
                     .then(function (countryData) {
                       console.dir(countryData);
+
                       let countryTopSites = "";
                       countryData.topSites.country.sites.site.forEach(function (country) {
+
                         countryTopSites += `<tr>
                           <td><a href="http://www.${countryData.topSites.country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
                           </tr>`;
@@ -306,6 +308,8 @@
                         <div id="content">
                           <div id="siteNotice"> 
                             <h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>
+                            <a href="#" class="fa fa-heart fa-lg text-muted" data-toggle="button" style="text-decoration: none"></a>
+                            
                             <div id="bodyContent">
                               <table class="table table-dark table-hover mb-0 ">
                                 <thead class="thead-light">
@@ -346,16 +350,16 @@
                 });
                 infowindow.open(map, marker);
                 google.maps.event.addListener(marker, 'click', function () {
-               
-               infowindow.open(map, marker) ? "": infowindow.open(map, marker);
-             });
-             // google.maps.event.addListener(infowindow, 'closeclick', function () {
-             //   setMapOnAll(null);; //removes the marker
-             //   // then, remove the infowindows name from the array
-             // });
+
+                  infowindow.open(map, marker) ? "" : infowindow.open(map, marker);
+                });
+                // google.maps.event.addListener(infowindow, 'closeclick', function () {
+                //   setMapOnAll(null);; //removes the marker
+                //   // then, remove the infowindows name from the array
+                // });
               });
 
-              
+
 
               // console.log(event.latLng.lat())
               // console.log(event.latLng.lng())
