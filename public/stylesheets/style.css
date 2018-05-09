@@ -1,21 +1,14 @@
-/* 
-.row, .container-fluid, #page-content-wrapper {
-  height: 100%;
-}
 
-#column {
-  padding: 0;
-} */
-
-html, body {
+html, body, #map {
   height: 100%;
-  width: 100%;
 }
 
 #map {
-   position: absolute;
-  height: 100%;
-  width: 100%;
+  width:100%;
+    position:absolute;
+    top:0;
+    padding:0;
+    
 }
 
 .gm-style-cc { display:none; }
@@ -24,84 +17,6 @@ a[href^="https://maps.google.com/maps"],
 a[href^="https://www.google.com/maps"] {
     display: none !important;
 }
-
-/* #map iframe{
-    height:100%;
-    width:100%;
-    position:absolute;
-} */
-/* 
-#sidebar-wrapper {
-  z-index: 1;
-  position: absolute;
-  width: 20px;
-  height: 100%;
-  overflow-y: hidden;
-  background:linear-gradient(rgb(0, 195, 255), aquamarine, rgb(65, 100, 89) ); 
-  
-} */
-
-/* TEMP */
-/* #page-content-wrapper {
-  position: absolute;
-  padding: 0;
-  width: 100%;
-} */
-
-/* #wrapper.menuDisplayed #page-content-wrapper {
-  padding-left: 100px;
-} */
-
-/* END */
-
-
-/* #wrapper.menuDisplayed #sidebar-wrapper {
-    width: 100px; */
-    
-/* } */
-/* #wrapper.menuDisplayed #map {
-    padding-left: 150px;
-} */
-/* 
-.sidebar-nav {
-  padding: 0;
-  list-style: none;
-}
-
-.sidebar-nav li {
-  text-indent: 20px;
-  line-height: 40px;
-} */
-/* 
-.sidebar-nav li a {
-  display: block;
-  text-decoration: none;
-  color: #ddd;
-}
-
-.sidebar-nav li a :hover {
-   background: #16A085;
-}
-
-#sidebar-btn {
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 15px;
-  transition: left .3s linear;
-} */
-
-/* #sidebar-btn span {
-  height: 1px;
-  background: #111;
-  margin-bottom: 5px;
-  display:block;
-  cursor: pointer;
-} */
-
-/* .lines-margin {
-  margin-left: 30px;
-} */
 
 @import 'http://geo-gvnix.rhcloud.com/resources/styles/standard.css';
 /* Custom fixed navs */
@@ -301,21 +216,6 @@ a[href^="https://www.google.com/maps"] {
 
  @media (min-width: 1330px) {
 
-/*     Allow main to be next to Nav
-   .main{
-     width: calc(100% - 200px); keeps 100% minus nav size
-     margin-left: 200px;
-   }
-
-   Show all nav
-   nav.sidebar{
-     margin-left: 0px;
-     float: left;
-   }
-   Show hidden items on nav
-   nav.sidebar .forAnimate{
-     opacity: 1;
-   } */
  }
 
  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
@@ -359,19 +259,6 @@ a[href^="https://www.google.com/maps"] {
  margin: 0px;
  line-height: 35px;
  cursor: pointer;
- /*    
-   .collapsed{
-      .arrow:before{
-                font-family: FontAwesome;
-                content: "\f053";
-                display: inline-block;
-                padding-left:10px;
-                padding-right: 10px;
-                vertical-align: middle;
-                float:right;
-           }
-    }
-*/
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
@@ -471,17 +358,4 @@ a[href^="https://www.google.com/maps"] {
    display: block;
  }
 }
-/* .map-responsive{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-} */
 
