@@ -1,8 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const sites = require('../controllers/sitesController')
+const sites = require('../controllers/sitesController');
 
 /* GET users listing. */
-router.post('/topTen', sites.topTen);
+router.post('/topTen', isLoggedIn, sites.topTen);
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/auth/google');
+  }
 
 module.exports = router;

@@ -21,4 +21,6 @@ function topTen(req, res) {
         });
 }
 
-module.exports = {topTen}
+module.exports = {
+    topTen
+}
