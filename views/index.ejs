@@ -74,7 +74,10 @@
 
       <script>
         var contentString;
+        var infoWindows = {};
         function initMap() {
+
+
           let map = new google.maps.Map(document.getElementById('map'), {
             gestureHandling: 'greedy',
             mapTypeControl: false,
@@ -292,7 +295,7 @@
                       console.dir(countryData);
 
                       let countryTopSites = "";
-                      countryData.topSites.country.sites.site.forEach(function (country,i) {
+                      countryData.topSites.country.sites.site.forEach(function (country) {
 
                         countryTopSites += `
                                   <tr>
@@ -328,6 +331,7 @@
                         </div>
                         `;
                       })
+                      return countryData.topSites.country.countryCode;
                     })
                     .catch(err => `Err is: ${err}`);
                 })
@@ -335,24 +339,33 @@
 
             google.maps.event.addListener(map, 'click', function (event) {
 
-              marker = new google.maps.Marker({
+
+              var marker = new google.maps.Marker({
                 position: event.latLng,
                 map: map,
-                animation: google.maps.Animation.DROP
+                animation: google.maps.Animation.DROP,
+                //id: countryData.topSites.country.countryCode
               });
 
               let lat = event.latLng.lat();
               let lng = event.latLng.lng();
 
-              getCC(lat, lng).then(function () {
-                console.log(contentString);
+              getCC(lat, lng).then(function (cc) {
+                console.log(cc);
                 let infowindow = new google.maps.InfoWindow({
-                  content: contentString
+                  content: contentString,
+                  marker: marker,
                 });
-                infowindow.open(map, marker);
-                google.maps.event.addListener(marker, 'click', function () {
+                infoWindows[cc] = {infowindow, marker}
 
-                  !(infowindow.open(map, marker)) ? "" : infowindow.open(map, marker);
+                marker.cc = cc;
+                infowindow.open(map,marker);
+
+
+                google.maps.event.addListener(marker, 'click', function () {
+                  console.log(marker.cc);
+                  infoWindows[marker.cc].infowindow.open(map, infoWindows[marker.cc].marker);
+                  // !(marker.infowindow.open(map, marker)) ? "" : marker.infowindow.open(map, marker);
                 });
                 // google.maps.event.addListener(infowindow, 'closeclick', function () {
                 //   setMapOnAll(null);; //removes the marker
