@@ -9,7 +9,10 @@ router.get('/', function(req, res, next) {
     User.findById(req.user._id)
       .populate('favorites')
       .exec(function(err, user) {
-        res.render('index', { user: user });
+        res.render('index', {
+          user: user,
+          favorites: JSON.stringify(user.favorites.map(fav => `${fav.code}`))
+        });
       });
   } else {
     res.render('index', { user: req.user });

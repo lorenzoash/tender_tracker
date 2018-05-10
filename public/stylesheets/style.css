@@ -359,7 +359,12 @@ a[href^="https://www.google.com/maps"] {
  }
 }
 
-.fa-heart:active {
+.fa-heart:checked {
   color: black !important;
 }
 
+button {
+  border: none;
+  outline: none !important;
+  margin: 10px 5px !important;
+}

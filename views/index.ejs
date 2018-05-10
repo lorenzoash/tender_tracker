@@ -5,18 +5,16 @@
   <title>Tender Tracker</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="/app.js"></script>
 </head>
 
@@ -26,7 +24,6 @@
 
   <aside>
     <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
       <div class="nav-side-menu">
         <div class="brand">Tender Traffic</div>
@@ -58,11 +55,6 @@
                     <% } %>
               </ul>
             </ul>
-            <li>
-              <a href="#">
-                <i class="fa fa-search fa-lg"></i> Search
-              </a>
-            </li>
             <% if (user) { %>
               <li data-toggle="collapse" data-target="#new" class="collapsed">
                 <a href="#">
@@ -278,6 +270,7 @@
           const rootURL = 'https://secure.geonames.org/countryCodeJSON?';
 
         <% if (user) { %>
+        window.userFavorites = <%- favorites%>;
             function getCC(lat, lng) {
               return fetch(`${rootURL}lat=${lat}&lng=${lng}&username=<%= process.env.GEO_USENAME %>`)
                 .then(cCode => cCode.json())
@@ -313,8 +306,8 @@
                         contentString = `
                         <div id="content">
                           <div id="siteNotice"> 
-                            <h3 id="firstHeading" class="firstHeading">${countryData.topSites.country.countryName}</h3>
-                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="fa fa-heart fa-lg text-muted" data-toggle="button" style="text-decoration: none"></button>
+                            <h3 id="firstHeading" class="d-inline firstHeading">${countryData.topSites.country.countryName}</h3>
+                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="${countryData.topSites.country.countryCode} fa fa-heart fa-lg float-right" style="text-decoration: none"></button>
                             
                             <div id="bodyContent">
                               <table class="table table-dark table-hover mb-0 text-center">
@@ -323,7 +316,7 @@
                                     <th scope="col"> Local Rank </th>
                                     <th scope="col"> URL </th>
                                     <th scope="col"> Global Rank </th>
-                                    <th scope="col"> Page Views</th>
+                                    <th scope="col"> Page Views </th>
                                   </tr>
                                 </thead>
                                 <tbody>
