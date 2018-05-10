@@ -71,7 +71,7 @@
                 </a>
               </li>
               <ul class="sub-menu collapse" id="new">
-                
+
               </ul>
               <% } %>
           </ul>
@@ -297,11 +297,16 @@
                       console.dir(countryData);
 
                       let countryTopSites = "";
-                      countryData.topSites.country.sites.site.forEach(function (country) {
+                      countryData.topSites.country.sites.site.forEach(function (country,i) {
 
-                        countryTopSites += `<tr>
-                          <td><a href="http://www.${country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
-                          </tr>`;
+                        countryTopSites += `
+                                  <tr>
+                                    <th scope="row">${country.country.rank}</th>
+                                    <td> <a href="http://www.${country.dataUrl}"target="_blank">${country.dataUrl}</a></td>
+                                    <td>${country.global.rank}</td>
+                                    <td>${country.country.pageViews.perMillion}</td>
+                                  </tr>
+                          `;
 
                         contentString = `
                         <div id="content">
@@ -310,16 +315,18 @@
                             <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="fa fa-heart fa-lg text-muted" data-toggle="button" style="text-decoration: none"></button>
                             
                             <div id="bodyContent">
-                              <table class="table table-dark table-hover mb-0 ">
+                              <table class="table table-dark table-hover mb-0 text-center">
                                 <thead class="thead-light">
                                   <tr>
-                                    <th scope="col"> # </th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Rank</th>
-                                    <th scope="col">Profile Page</th>
+                                    <th scope="col"> Local Rank </th>
+                                    <th scope="col"> URL </th>
+                                    <th scope="col"> Global Rank </th>
+                                    <th scope="col"> Page Views</th>
                                   </tr>
                                 </thead>
-                              ${countryTopSites}
+                                <tbody>
+                                  ${countryTopSites}
+                                </tbody>
                               </table>
                             </div>
                           </div>
@@ -350,7 +357,7 @@
                 infowindow.open(map, marker);
                 google.maps.event.addListener(marker, 'click', function () {
 
-                  infowindow.open(map, marker) ? "" : infowindow.open(map, marker);
+                  !(infowindow.open(map, marker)) ? "" : infowindow.open(map, marker);
                 });
                 // google.maps.event.addListener(infowindow, 'closeclick', function () {
                 //   setMapOnAll(null);; //removes the marker
