@@ -6,13 +6,11 @@ const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const cors = require('cors')
-
-
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var sitesRouter = require('./routes/sites');
-// var apiRouter = require('./routes/api');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
@@ -29,7 +27,7 @@ const sessionStore = new MongoDBStore({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(cors())
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -50,7 +48,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/sites', sitesRouter);
-// app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

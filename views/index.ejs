@@ -71,7 +71,9 @@
                 </a>
               </li>
               <ul class="sub-menu collapse" id="new">
-                
+                <% user.favorites.forEach(function(favorite){ %>
+                  <li><%= favorite.name %></li>
+               <% }) %>
               </ul>
               <% } %>
           </ul>

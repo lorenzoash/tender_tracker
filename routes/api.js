@@ -1,4 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var country = require('../controllers/api/countries')
+const express = require('express');
+const router = express.Router();
+const country = require('../controllers/api/countries');
 
+router.get('/allCountries', country.countryAPI);
+
+module.exports = router;

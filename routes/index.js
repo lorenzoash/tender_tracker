@@ -1,26 +1,35 @@
-var express = require('express');
-var router = express.Router();
-let passport = require('passport');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const User = require('./../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user });
+  if (req.user) {
+    User.findById(req.user._id)
+      .populate('favorites')
+      .exec(function(err, user) {
+        res.render('index', { user: user });
+      });
+  } else {
+    res.render('index', { user: req.user });
+  }
 });
 
-router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email']}
-));
+router.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
 
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect : '/',
-    failureRedirect : '/'
-  }
-));
+router.get(
+  '/oauth2callback',
+  passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/'
+  })
+);
 
-router.get('/logout', function(req, res){
+router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
