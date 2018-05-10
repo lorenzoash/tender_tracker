@@ -36,8 +36,13 @@
 
             <li data-toggle="collapse" data-target="#service" class="collapsed">
               <a href="#">
-                <i class="fa fa-user fa-lg"></i> Profile
+              <% if (user) { %>
+                <i class="fa fa-user fa-lg"></i> Logout
                 <span class="arrow"></span>
+                <%} else { %>
+                <i class="fa fa-user fa-lg"></i> Login
+                <span class="arrow"></span>
+                <% } %>
               </a>
             </li>
             <ul class="sub-menu collapse" id="service">
