@@ -7,5 +7,15 @@ function addFavorites(code, name) {
     }),
     headers: { "Content-Type": "application/json" },
     credentials: "include"
-  }).catch(err => console.log(err));
+  })
+    .then(data => data.json())
+    .then(user => {
+      let fav = document.querySelector("#new");
+      let favList = "";
+      user.favorites.forEach(function(favorite) {
+        favList += `<li>${favorite.name}</li>`;
+      });
+      fav.innerHTML = favList;
+    })
+    .catch(err => console.log(err));
 }
