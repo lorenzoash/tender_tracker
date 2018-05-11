@@ -17,7 +17,7 @@ Tender Tracker has an exposed API located [Here](https://tender-tracker.herokuap
 | :---         |    ---       | ---:
 |**URI**|**HTTP Verb**|**Use Case**|
 | | | |
-| https://tender-tracker.herokuapp.com/api/allCountries | GET | Retrieve ALL countries in the DB |
+| https://tender-tracker.herokuapp.com/api/allCountries | GET | Retrieve ALL countries favorited in the DB |
 | | | |
 
 
