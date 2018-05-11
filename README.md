@@ -1,17 +1,31 @@
 # Tender Site Tracker README
 
-One Paragraph of project description goes here
+Welcome to Tender Tracker!  This site allows you to click any country and see its most popular websites.  These sites are ranked by their local popularity.  You can also see how many views per million each site receives. You must be Logged into Google to active our site.
 
 ## Getting Started
-Please head over to https://tender-tracker.herokuapp.com/ to check out the live site.
+
+![Tender Tracker](https://i.imgur.com/i5CEgoE.png)
+![Tender Tracker](https://i.imgur.com/WXCR8Ui.png)
+![Tender Tracker](https://i.imgur.com/bks3kEE.png)
+Please head over to [click here](https://tender-tracker.herokuapp.com/) to check out the live site.
 
 ## Running the tests
-Tender Tracker has an exposed API located at https://tender-tracker.herokuapp.com/api/allCountries
+Tender Tracker has an exposed API located [Here](https://tender-tracker.herokuapp.com/api/allCountries)
 
 
 ## Built With
-Node.js  
-MongoDB / Mlab
+* Node.js  
+* MongoDB / Mlab
+* Google Maps API
+* Geonames API
+* AWS API
+* Google oAuth
+* Java Script
+* CSS
+* HTML
+
+## Trello
+[Trello Link](https://trello.com/b/Mz92mf6N/tst-tender-site-tracker)
 
 ## AUTHORS:
 ## Michael Acevedo, Lorenzo Ash, Andrew Lyzenga, Michael Slocum
@@ -19,4 +33,4 @@ MongoDB / Mlab
 ## Acknowledgments
 Hat tip to anyone who's code was used
 Inspiration
-etc
+etc.

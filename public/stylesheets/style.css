@@ -333,3 +333,6 @@ button {
   margin: 10px 5px !important;
 }
 
+footer {
+  position: fixed;
+}
