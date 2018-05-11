@@ -19,11 +19,6 @@ a[href^="https://www.google.com/maps"] {
 }
 
 @import 'http://geo-gvnix.rhcloud.com/resources/styles/standard.css';
-/* Custom fixed navs */
-
-  /* header.navbar+nav.navbar{
-  margin-top: 20px;same margin-bottom .  navbar
-  } */
   .navbar.navbar-default.navbar-fixed-top{
   margin-top: 50px;
   }
@@ -39,8 +34,6 @@ a[href^="https://www.google.com/maps"] {
        margin-top: 150px;
       }
    }
-
- /* Custom navbar default: global*/
 
  .navbar.navbar-default{
    background-color: #f8f8f8;
@@ -81,11 +74,6 @@ a[href^="https://www.google.com/maps"] {
    border-bottom-color: #333;
    }
 
-
-/* Custom sidebar menu */
-
-/*Remove rounded coners*/
-
  nav.sidebar.navbar {
    border-radius: 0px;
  }
@@ -97,47 +85,38 @@ a[href^="https://www.google.com/maps"] {
      transition: margin 200ms ease-out;
  }
 
- /* Add gap to nav and right windows.*/
  .main{
    padding: 10px 10px 0 10px;
  }
 
- /* .....NavBar: Icon only with coloring/layout.....*/
-
- /*small/medium side display*/
  @media (min-width: 768px) {
 
-   /*Allow main to be next to Nav*/
    .main{
      position: absolute;
-     width: calc(100% - 40px); /*keeps 100% minus nav size*/
+     width: calc(100% - 40px);
      margin-left: 40px;
      float: right;
    }
 
-   /*lets nav bar to be showed on mouseover*/
    nav.sidebar:hover + .main{
      margin-left: 200px;
    }
 
-   /*Center Brand*/
    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
      margin-left: 0px;
    }
-   /*Center Brand*/
+
    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
      text-align: center;
      width: 100%;
      margin-left: 0px;
    }
 
-   /*Center Icons*/
    nav.sidebar a{
      padding-right: 13px;
       min-width: 100px;
    }
 
-   /*custom sidebar nav*/
        nav.sidebar ul.nav.navbar-nav{
            margin: 0;
        }
@@ -145,25 +124,22 @@ a[href^="https://www.google.com/maps"] {
            color: white;
        }
 
-   /*adds border top to first nav box */
    nav.sidebar .navbar-nav > li:first-child{
      border-top: 1px #e5e5e5 solid;
    }
 
-   /*adds border to bottom nav boxes*/
    nav.sidebar .navbar-nav > li{
      border-bottom: 1px #e5e5e5 solid;
    }
-   /*adds background on hover*/
+
    nav.sidebar .navbar-nav > li:hover{
        color: #fff;
            background-color: #43600E;
    }
-  
+
    nav.sidebar .navbar-nav > li.last{
      border-bottom: none;
    }
-
 
    nav.sidebar .navbar-nav .open .dropdown-menu {
      position: static;
@@ -176,18 +152,14 @@ a[href^="https://www.google.com/maps"] {
      box-shadow: none;
    }
 
-
    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
      padding: 0 0 0 0;
    }
 
-   /*colors dropdown box text */
    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
      color: #777;
    }
 
-/*O quanto o menu irá esconder á esquerda*/
-   /*gives sidebar width/height*/
    nav.sidebar{
      width: 200px;
      height: 100%;
@@ -197,22 +169,18 @@ a[href^="https://www.google.com/maps"] {
      margin-bottom: 0;
    }
 
-   /*give sidebar 100% width;*/
    nav.sidebar li {
      width: 100%;
    }
 
-   /* Move nav to full on mouse over*/
    nav.sidebar:hover{
      margin-left: -16px;
    }
-   /*for hiden things when navbar hidden*/
+
    .forAnimate{
      opacity: 0;
    }
  }
-
- /* .....NavBar: Fully showing nav bar..... */
 
  @media (min-width: 1330px) {
 
@@ -226,9 +194,6 @@ a[href^="https://www.google.com/maps"] {
  nav:hover .forAnimate{
    opacity: 1;
  }
- 
- 
- /*---- FIM SLIDE MENU*/
  
  .nav-side-menu {
  overflow: auto;
@@ -264,7 +229,6 @@ a[href^="https://www.google.com/maps"] {
 .nav-side-menu li :not(collapsed) .arrow:before {
  font-family: FontAwesome;
  content: "\f078";
- /* display: inline-block; */
  padding-left: 10px;
  padding-right: 10px;
  vertical-align: middle;
