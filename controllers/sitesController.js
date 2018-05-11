@@ -17,7 +17,7 @@ function topTen(req, res) {
       Count: 10,
       ResponseGroup: "Country"
     },
-    function (err, apiRes) {
+    function(err, apiRes) {
       if (err) console.log(err);
       res.json(apiRes).status(200);
     }
@@ -25,26 +25,21 @@ function topTen(req, res) {
 }
 
 function favorite(req, res) {
-  //Check if country has a document
-  Country.findOne({ code: req.body.code }).then(function (country) {
+  Country.findOne({ code: req.body.code }).then(function(country) {
     if (!country) {
-      Country.create(req.body).then(function (country) {
+      Country.create(req.body).then(function(country) {
         req.user.favorites.push(country);
-        req.user.save(function (err) {
+        req.user.save(function(err) {
           User.findById(req.user._id)
             .populate("favorites")
-            .exec(function (err, user) {
+            .exec(function(err, user) {
               res.json(user).status(200);
             });
         });
       });
     } else {
-      //if country exists in your fav list
-      //if yes -> delete country from fav list and decrement count
-      // if no -> want to add country to fav list to increment count
-
       let refExists = false;
-      req.user.favorites.forEach(function (favoriteRef) {
+      req.user.favorites.forEach(function(favoriteRef) {
         if (favoriteRef.equals(country._id)) {
           country.count -= 1;
           req.user.favorites.remove(favoriteRef);
@@ -58,10 +53,10 @@ function favorite(req, res) {
       }
 
       country.save();
-      req.user.save(function (err) {
+      req.user.save(function(err) {
         User.findById(req.user._id)
           .populate("favorites")
-          .exec(function (err, user) {
+          .exec(function(err, user) {
             res.json(user).status(200);
           });
       });
