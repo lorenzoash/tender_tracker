@@ -12,6 +12,17 @@ Please head over to [click here](https://tender-tracker.herokuapp.com/) to check
 ## Running the tests
 Tender Tracker has an exposed API located [Here](https://tender-tracker.herokuapp.com/api/allCountries)
 
+## API MAP
+| | | |
+| :---         |    ---       | ---:
+|**URI**|**HTTP Verb**|**Use Case**|
+| | | |
+| https://tender-tracker.herokuapp.com/api/allCountries | GET | Retrieve ALL countries in the DB |
+| | | |
+
+
+Please follow the route outlined, above.
+
 
 ## Built With
 * Node.js  

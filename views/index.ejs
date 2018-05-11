@@ -13,22 +13,23 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="/app.js"></script>
 </head>
 
 <body>
   <div id="map">
   </div>
-<div class="navbar float-right ">
-<a tabindex="0" class="btn btn-secondary" role="button" data-toggle="popover" data-trigger="focus" style="background-color:#2e353d" title="Tender Tracker" data-content="Welcome to Tender Tracker!  This site allows you to click any country and see its most popular websites.  These sites are ranked by their local popularity.  You can also see how many views per million each site receives. Please log in to begin clicking around.">
-<i class="fa fa-info-circle fa-2x" style="color:#e1ffff"></i>
+  <div class="navbar float-right ">
+    <a tabindex="0" class="btn btn-secondary" role="button" data-toggle="popover" data-trigger="focus" style="background-color:#2e353d"
+      title="Tender Tracker" data-content="Welcome to Tender Tracker!  This site allows you to click any country and see its most popular websites.  These sites are ranked by their local popularity.  You can also see how many views per million each site receives. Please log in to begin clicking around.">
+      <i class="fa fa-info-circle fa-2x" style="color:#e1ffff"></i>
 
-</a>
+    </a>
 
-</div>
-  
+  </div>
+
   <aside>
     <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
 
@@ -43,13 +44,13 @@
 
             <li data-toggle="collapse" data-target="#service" class="collapsed">
               <a href="#">
-              <% if (user) { %>
-                <i class="fa fa-user fa-lg"></i> Logout
-                <span class="arrow"></span>
-                <%} else { %>
-                <i class="fa fa-user fa-lg"></i> Login
-                <span class="arrow"></span>
-                <% } %>
+                <% if (user) { %>
+                  <i class="fa fa-user fa-lg"></i> Logout
+                  <span class="arrow"></span>
+                  <%} else { %>
+                    <i class="fa fa-user fa-lg"></i> Login
+                    <span class="arrow"></span>
+                    <% } %>
               </a>
             </li>
             <ul class="sub-menu collapse" id="service">
@@ -76,35 +77,45 @@
               </li>
               <ul class="sub-menu collapse" id="new">
                 <% user.favorites.forEach(function(favorite){ %>
-                  <li><%= favorite.name %></li>
-               <% }) %>
+                  <li>
+                    <%= favorite.name %>
+                  </li>
+                  <% }) %>
               </ul>
               <% } %>
-          </ul> 
+          </ul>
           <li data-toggle="collapse" data-target="#team" class="collapsed">
-                <a href="#">
-                  <i class="fa fa-users"></i> Team Tender Love
-                  <span class="arrow"></span>
-                </a>
-              </li>
+            <a href="#">
+              <i class="fa fa-users"></i> Team Tender Love
+              <span class="arrow"></span>
+            </a>
+          </li>
           <ul class="sub-menu collapse" id="team">
-              <li><a href="https://github.com/lorenzoash" class="team">Lorenzo A.</a></li>
-              <li><a href="https://github.com/lyzengar" class="team">Andrew L.</a></li>
-              <li><a href="https://github.com/MiclAvdo" class="team">Mike A.</a></li>
-              <li><a href="https://github.com/Balance8" class="team">Mike S.</a></li>
+            <li>
+              <a href="https://github.com/lorenzoash" class="team">Lorenzo A.</a>
+            </li>
+            <li>
+              <a href="https://github.com/lyzengar" class="team">Andrew L.</a>
+            </li>
+            <li>
+              <a href="https://github.com/MiclAvdo" class="team">Mike A.</a>
+            </li>
+            <li>
+              <a href="https://github.com/Balance8" class="team">Mike S.</a>
+            </li>
           </ul>
           </a>
           </li>
-        
-         
+
+
         </div>
       </div>
 
       <script>
-      <% if (favorites){ %>
-        window.userFavorites = <%- favorites%>;
+      <% if (favorites) { %>
+          window.userFavorites = <% - favorites %>;
       <% } else {%>
-        window.userFavorites = [];
+          window.userFavorites =[];
       <% } %>
         var contentString;
         var infoWindows = {};
@@ -338,7 +349,7 @@
                         <div id="content">
                           <div id="siteNotice"> 
                             <h3 id="firstHeading" class="d-inline firstHeading">${countryData.topSites.country.countryName}</h3>
-                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="${countryData.topSites.country.countryCode} fa fa-heart fa-lg float-right tt-heart ${userFavorites.includes(countryData.topSites.country.countryCode)? "text-danger": null}" style="text-decoration: none"></button>
+                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="${countryData.topSites.country.countryCode} fa fa-heart fa-lg float-right tt-heart ${userFavorites.includes(countryData.topSites.country.countryCode) ? "text-danger" : null}" style="text-decoration: none"></button>
                             
                             <div id="bodyContent">
                               <table class="table table-dark table-hover mb-0 text-center">
@@ -379,7 +390,7 @@
 
               getCC(lat, lng).then(function (cc) {
                 window.cc = cc;
-                if(userFavorites.includes(cc)){
+                if (userFavorites.includes(cc)) {
                   console.log(cc)
                   $(`.${cc}`).addClass('text-danger')
                 }
@@ -390,14 +401,14 @@
                   content: contentString,
                   marker: marker,
                 });
-                infoWindows[cc] = {infowindow, marker}
+                infoWindows[cc] = { infowindow, marker }
 
                 marker.cc = cc;
 
-                
-                infowindow.open(map,marker);
 
-                
+                infowindow.open(map, marker);
+
+
 
 
                 google.maps.event.addListener(marker, 'click', function () {
@@ -409,17 +420,17 @@
             <% } %>
 
           }
-          
+
       </script>
       <div class="main">
-      
+
       </div>
       </div>
-      
+
     </nav>
 
   </aside>
- 
+
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_MAP_KEY %>&callback=initMap"></script>
 
