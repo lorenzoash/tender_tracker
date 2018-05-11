@@ -80,7 +80,11 @@
       </div>
 
       <script>
-      window.userFavorites = <%- favorites%>;
+      <% if (favorites){ %>
+        window.userFavorites = <%- favorites%>;
+      <% } else {%>
+        window.userFavorites = [];
+      <% } %>
         var contentString;
         var infoWindows = {};
         function initMap() {
