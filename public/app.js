@@ -13,12 +13,12 @@ function addFavorites(code, name) {
       let fav = document.querySelector('#new');
       let favList = '';
       window.userFavorites = user.favorites.map(favorite => favorite.code);
-      window.userFavorites
-        .map(favorite => `.${favorite}`)
-        .forEach(function(fav) {
-          console.log(fav);
-          console.dir(document.querySelector(`${fav}`));
-        });
+      if (userFavorites.includes(cc)) {
+        $(`.${cc}`).addClass('text-danger')
+      }
+      else {
+        $(`.${cc}`).removeClass('text-danger')
+      }
       user.favorites.forEach(function(favorite) {
         favList += `<li>${favorite.name}</li>`;
       });
@@ -26,3 +26,12 @@ function addFavorites(code, name) {
     })
     .catch(err => console.log(err));
 }
+
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})

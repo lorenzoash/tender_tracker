@@ -134,7 +134,7 @@ a[href^="https://www.google.com/maps"] {
    /*Center Icons*/
    nav.sidebar a{
      padding-right: 13px;
-           min-width: 100px;
+      min-width: 100px;
    }
 
    /*custom sidebar nav*/
@@ -368,3 +368,4 @@ button {
   outline: none !important;
   margin: 10px 5px !important;
 }
+

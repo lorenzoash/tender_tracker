@@ -21,12 +21,19 @@
 <body>
   <div id="map">
   </div>
+<div class="navbar float-right ">
+<a tabindex="0" class="btn btn-secondary" role="button" data-toggle="popover" data-trigger="focus" style="background-color:#2e353d" title="Tender Tracker" data-content="Welcome to Tender Tracker!  This site allows you to click any country and see its most popular websites.  These sites are ranked by their local popularity.  You can also see how many views per million each site receives. Please log in to begin clicking around.">
+<i class="fa fa-info-circle fa-2x" style="color:#e1ffff"></i>
 
+</a>
+
+</div>
+  
   <aside>
     <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
 
       <div class="nav-side-menu">
-        <div class="brand">Tender Traffic</div>
+        <div class="brand">Tender Tracker</div>
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
         <div class="menu-list">
@@ -78,6 +85,7 @@
       </div>
 
       <script>
+      window.userFavorites = <%- favorites%>;
         var contentString;
         var infoWindows = {};
         function initMap() {
@@ -278,7 +286,6 @@
           const rootURL = 'https://secure.geonames.org/countryCodeJSON?';
 
         <% if (user) { %>
-        window.userFavorites = <%- favorites%>;
             function getCC(lat, lng) {
               return fetch(`${rootURL}lat=${lat}&lng=${lng}&username=<%= process.env.GEO_USENAME %>`)
                 .then(cCode => cCode.json())
@@ -297,8 +304,6 @@
                   })
                     .then(countryData => countryData.json())
                     .then(function (countryData) {
-                      console.dir(countryData);
-
                       let countryTopSites = "";
                       countryData.topSites.country.sites.site.forEach(function (country) {
 
@@ -315,7 +320,7 @@
                         <div id="content">
                           <div id="siteNotice"> 
                             <h3 id="firstHeading" class="d-inline firstHeading">${countryData.topSites.country.countryName}</h3>
-                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="${countryData.topSites.country.countryCode} fa fa-heart fa-lg float-right" style="text-decoration: none"></button>
+                            <button onclick= "addFavorites('${countryData.topSites.country.countryCode}', '${countryData.topSites.country.countryName}')" class="${countryData.topSites.country.countryCode} fa fa-heart fa-lg float-right tt-heart ${userFavorites.includes(countryData.topSites.country.countryCode)? "text-danger": null}" style="text-decoration: none"></button>
                             
                             <div id="bodyContent">
                               <table class="table table-dark table-hover mb-0 text-center">
@@ -356,7 +361,14 @@
               let lng = event.latLng.lng();
 
               getCC(lat, lng).then(function (cc) {
-                console.log(cc);
+                window.cc = cc;
+                if(userFavorites.includes(cc)){
+                  console.log(cc)
+                  $(`.${cc}`).addClass('text-danger')
+                }
+                else {
+                  $(`.${cc}`).removeClass('text-danger')
+                }
                 let infowindow = new google.maps.InfoWindow({
                   content: contentString,
                   marker: marker,
@@ -364,11 +376,14 @@
                 infoWindows[cc] = {infowindow, marker}
 
                 marker.cc = cc;
+
+                
                 infowindow.open(map,marker);
+
+                
 
 
                 google.maps.event.addListener(marker, 'click', function () {
-                  console.log(marker.cc);
                   infoWindows[marker.cc].infowindow.open(map, infoWindows[marker.cc].marker);
                   // !(marker.infowindow.open(map, marker)) ? "" : marker.infowindow.open(map, marker);
                 });
