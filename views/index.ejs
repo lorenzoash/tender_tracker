@@ -80,7 +80,23 @@
                <% }) %>
               </ul>
               <% } %>
+          </ul> 
+          <li data-toggle="collapse" data-target="#team" class="collapsed">
+                <a href="#">
+                  <i class="fa fa-users"></i> Team Tender Love
+                  <span class="arrow"></span>
+                </a>
+              </li>
+          <ul class="sub-menu collapse" id="team">
+              <li><a href="https://github.com/lorenzoash" class="team">Lorenzo A.</a></li>
+              <li><a href="https://github.com/lyzengar" class="team">Andrew L.</a></li>
+              <li><a href="https://github.com/MiclAvdo" class="team">Mike A.</a></li>
+              <li><a href="https://github.com/Balance8" class="team">Mike S.</a></li>
           </ul>
+          </a>
+          </li>
+        
+         
         </div>
       </div>
 
@@ -406,14 +422,17 @@
             <% } %>
 
           }
+          
       </script>
       <div class="main">
+      
       </div>
       </div>
+      
     </nav>
 
   </aside>
-
+ 
 </body>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_MAP_KEY %>&callback=initMap"></script>
 
