@@ -293,13 +293,11 @@
             var sLat = map.getBounds().getSouthWest().lat();
             var nLat = map.getBounds().getNorthEast().lat();
             if (sLat < -85 || nLat > 85) {
-              // alert('Gray area visible');
               map.setOptions({
                 center: new google.maps.LatLng(
-                  31.55143337748626, // set Latitude for center of map here
-                  -12.39556775341805) // set Langitude for center of map here
+                  31.55143337748626,
+                  -12.39556775341805)
               });
-              // map.fitBounds(boundsNew);  Or Define bound that u want show
             }
           });
 
@@ -374,7 +372,6 @@
                 position: event.latLng,
                 map: map,
                 animation: google.maps.Animation.DROP,
-                //id: countryData.topSites.country.countryCode
               });
 
               let lat = event.latLng.lat();
@@ -405,18 +402,8 @@
 
                 google.maps.event.addListener(marker, 'click', function () {
                   infoWindows[marker.cc].infowindow.open(map, infoWindows[marker.cc].marker);
-                  // !(marker.infowindow.open(map, marker)) ? "" : marker.infowindow.open(map, marker);
                 });
-                // google.maps.event.addListener(infowindow, 'closeclick', function () {
-                //   setMapOnAll(null);; //removes the marker
-                //   // then, remove the infowindows name from the array
-                // });
               });
-
-
-
-              // console.log(event.latLng.lat())
-              // console.log(event.latLng.lng())
             });
               
             <% } %>
