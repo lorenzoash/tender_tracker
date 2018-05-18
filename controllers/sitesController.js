@@ -1,26 +1,11 @@
-const awis = require("awis");
-require("dotenv").config();
-const Country = require("../models/country");
-const User = require("../models/user");
-
-const client = awis({
-  key: process.env.AWS_ACCESS_KEY_ID,
-  secret: process.env.SECRET_ACCESS_KEY
-});
+require('dotenv').config();
+const Country = require('../models/country');
+const User = require('../models/user');
+const Data = require('../models/data');
 
 function topTen(req, res) {
-  client(
-    {
-      Action: "TopSites",
-      CountryCode: req.body.countryCode,
-      Start: 1,
-      Count: 10,
-      ResponseGroup: "Country"
-    },
-    function(err, apiRes) {
-      if (err) console.log(err);
-      res.json(apiRes).status(200);
-    }
+  Data.find({ countryCode: req.body.countryCode }).then(country =>
+    res.status(200).json(country)
   );
 }
 
@@ -31,7 +16,7 @@ function favorite(req, res) {
         req.user.favorites.push(country);
         req.user.save(function(err) {
           User.findById(req.user._id)
-            .populate("favorites")
+            .populate('favorites')
             .exec(function(err, user) {
               res.json(user).status(200);
             });
@@ -55,7 +40,7 @@ function favorite(req, res) {
       country.save();
       req.user.save(function(err) {
         User.findById(req.user._id)
-          .populate("favorites")
+          .populate('favorites')
           .exec(function(err, user) {
             res.json(user).status(200);
           });
